@@ -1,0 +1,128 @@
+📄 GRAFANA LOCAL INSTALLATION + SQLITE PLUGIN SETUP (WINDOWS)
+Step-by-Step Installation Guide
+✅ 1. Download & Install Grafana (Windows)
+
+Go to the official Grafana download page:
+https://grafana.com/grafana/download
+
+Select:
+Windows Installer (64-bit)
+Example file name:
+grafana-enterprise_12.3.0_windows_amd64.msi
+
+Run the installer:
+
+Click Next
+
+Accept license
+
+Click Install
+
+After installation, Grafana runs automatically as a Windows Service.
+
+✅ 2. Verify Grafana Installation
+Method A — Services
+
+Press Win + R
+
+Type: services.msc
+
+Look for Grafana
+
+Status should be Running
+
+Method B — Browser Check
+
+Open:
+
+http://localhost:3000
+
+
+Login:
+
+Username: admin
+
+Password: admin (you will be asked to change it)
+
+If this page opens, Grafana is installed correctly.
+
+✅ 3. Install SQLite Plugin
+
+Grafana does NOT support SQLite by default.
+To connect olist.sqlite, you must install the plugin.
+
+Step 3.1 — Open Command Prompt as Administrator
+
+Press Start
+
+Type cmd
+
+Right-click → Run as administrator
+
+Step 3.2 — Navigate to Grafana installation directory
+cd /d "C:\Program Files\GrafanaLabs\grafana"
+
+Step 3.3 — Install SQLite plugin
+
+Run:
+
+bin\grafana-cli.exe plugins install frser-sqlite-datasource
+
+
+If this plugin is not available, use the alternative:
+
+bin\grafana-cli.exe plugins install marcusolsson-sqlite-datasource
+
+
+Expected successful output:
+
+✔ Downloaded and extracted frser-sqlite-datasource successfully
+
+
+(A small temp-file error is okay — plugin still installs.)
+
+✅ 4. Restart Grafana Service
+
+Once plugin installation is complete, restart Grafana:
+
+Option A — Command Prompt
+net stop grafana
+net start grafana
+
+Option B — Services panel
+
+Open services.msc
+
+Find Grafana
+
+Right-click → Restart
+
+✅ 5. Verify Plugin Installation
+
+Open Grafana:
+http://localhost:3000
+
+Go to Connections (left side menu)
+
+Click Add Data Source
+
+Search for: SQLite
+
+You should see one of these:
+
+SQLite by frser
+
+SQLite (frser-sqlite-datasource)
+
+Marcus Olsson SQLite Datasource
+
+If SQLite appears → plugin installation is successful.
+
+📌 At This Stage — Setup Completed
+
+You now have:
+
+✓ Grafana installed locally
+✓ Grafana running as Windows service
+✓ SQLite plugin installed
+✓ Ready to add olist.sqlite as a datasource
