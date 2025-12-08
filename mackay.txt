@@ -1,0 +1,15 @@
+So these are the files used in the backend you have to look what table it is connecting
+
+Standard table or custom table ,the one you see in the dictionary are the standard table , get the access of API or ODBC.
+
+----
+what to tell 
+so we want to your data ,we found that for this part you are using this table, So in short you have to tell in which table what kind of data is there do not provide all the columns name all which is unnecessary
+
+
+-----
+The Assignment 
+* The table name being utilized
+* Why that specific table is being utilized 
+* What kind of data is stored in the table 
+* how the data can be used to gain the better insights for the company
